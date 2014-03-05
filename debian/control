@@ -1,0 +1,43 @@
+Source: asterisk-moh-opsound
+Section: comm
+Priority: extra
+Maintainer: Debian VoIP Team <pkg-voip-maintainers@lists.alioth.debian.org>
+Uploaders: Tzafrir Cohen <tzafrir@debian.org>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.8.4
+Homepage: http://www.asterisk.org/
+
+Package: asterisk-moh-opsound-g722
+Architecture: all
+Depends: ${misc:Depends}
+Description: asterisk extra sound files - English/g722
+ Asterisk is an Open Source PBX and telephony toolkit.  It is, in a
+ sense, middleware between Internet and telephony channels on the bottom,
+ and Internet and telephony applications at the top.
+ .
+ Asterisk includes a set of standard sound files in various formats. This
+ package contains several "on-hold" music files in raw G.722 format
+ (mildly compressed wide-band codec).
+
+Package: asterisk-moh-opsound-gsm
+Architecture: all
+Depends: ${misc:Depends}
+Description: asterisk extra sound files - English/gsm
+ Asterisk is an Open Source PBX and telephony toolkit.  It is, in a
+ sense, middleware between Internet and telephony channels on the bottom,
+ and Internet and telephony applications at the top.
+ .
+ Asterisk includes a set of standard sound files in various formats. This
+ package contains several "on-hold" music files in raw gsm-fr format
+ (Compressed. Takes relatively little space. playable with sox).
+
+Package: asterisk-moh-opsound-wav
+Architecture: all
+Depends: ${misc:Depends}
+Description: asterisk extra sound files - English/wav
+ Asterisk is an Open Source PBX and telephony toolkit.  It is, in a
+ sense, middleware between Internet and telephony channels on the bottom,
+ and Internet and telephony applications at the top.
+ .
+ Asterisk includes a set of standard sound files in various formats. This
+ package contains several "on-hold" music files WAV format (8Khz, mono).

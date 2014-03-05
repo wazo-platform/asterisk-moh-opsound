@@ -1,0 +1,41 @@
+#!/usr/bin/make -f
+
+BASE_URL=http://downloads.asterisk.org/pub/telephony/sounds/releases/
+PACKAGE=$(shell sed -e '2,$$d' -e 's/ .*//' debian/changelog)
+VERSION=$(shell sed -e '2,$$d' -e 's/^[^(]*(\([^-]*\)-.*)*)*/\1/' debian/changelog)
+TMPDIR=tmp
+FORMATS=gsm g722 wav
+TARGET_DIR=.
+
+PKGNAME=$(PACKAGE)-$(VERSION)
+PKGDIR=$(TMPDIR)/$(PKGNAME)
+
+%:
+	dh $@
+
+
+print-version:
+	@echo package: $(PACKAGE)
+	@echo version: $(VERSION)
+
+get-orig-source:
+	rm -rf $(PKGDIR)
+	mkdir -p $(PKGDIR)
+	set -e ; \
+	cd $(TMPDIR); for format in $(FORMATS); do \
+	  tarball="$(PACKAGE)-$$format-$(VERSION).tar.gz"; \
+	  wget -q -c $(BASE_URL)/$$tarball; \
+	  mkdir $(PKGNAME)/$$format; \
+	  cd $(PKGNAME)/$$format; \
+	    tar xzf ../../$$tarball; \
+	  cd ../..; \
+	done
+	# Remove tarballs: only after a successful download:
+	set -e ; \
+	cd $(TMPDIR); for format in $(FORMATS); do \
+	  tarball="$(PACKAGE)-$$format-$(VERSION).tar.gz"; \
+	  $(RM) -f $$tarball; \
+	 done
+	tar czf $(TARGET_DIR)/$(PACKAGE)_$(VERSION).orig.tar.gz \
+		-C $(TMPDIR) $(PACKAGE)-$(VERSION)
+	rm -rf $(TMPDIR)

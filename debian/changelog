@@ -1,0 +1,29 @@
+asterisk-moh-opsound (2.03-1+0.pf-backport-4) stable; urgency=low
+
+  * fix install path
+
+ -- Cedric Abunar <cabunar@avencall.com>  Wed, 05 Mar 2014 08:49:07 -0500
+
+asterisk-moh-opsound (2.03-1+0.pf-backport-3) squeeze; urgency=low
+
+  * #3453 Music on hold is too loud 
+
+ -- Nicolas HICHER (atarakt) <nhicher@proformatique.com>  Tue, 12 Jun 2012 10:34:24 -0400
+
+asterisk-moh-opsound (2.03-1+0.pf-backport-2) squeeze; urgency=low
+
+  * fix perms for /var/lib/asterisk/moh/default 
+
+ -- Nicolas HICHER (atarakt) <nhicher@proformatique.com>  Mon, 26 Mar 2012 15:31:20 -0400
+
+asterisk-moh-opsound (2.03-1+0.pf-backport-1) squeeze; urgency=low
+
+  * XiVO backport
+
+ -- Nicolas HICHER (atarakt) <nhicher@proformatique.com>  Mon, 09 Jan 2012 15:21:50 -0500
+
+asterisk-moh-opsound (2.03-1) unstable; urgency=low
+
+  * Initial release. (Closes: #571167)
+
+ -- Tzafrir Cohen <tzafrir@debian.org>  Sat, 19 Jun 2010 21:39:48 +0300

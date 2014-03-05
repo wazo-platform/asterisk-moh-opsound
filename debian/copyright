@@ -1,0 +1,62 @@
+Files were downloaded from: 
+http://downloads.asterisk.org/pub/telephony/sounds/
+
+Files macroform-cold_day, macroform-robot_dity, macroform-the_simplicity:
+Copyright (C) 2009 Paul Shuler (Macroform) <paulshuler@gmail.com>
+
+Files manolo_camp-morning_coffe:
+Copyright (C) 2009 Manolo Camp <beatbastard@gmx.net>
+
+Files reno_project-system:
+Copyright (C) 2008 Reno Project <renoproject@hotmail.com>
+
+These files are distributed under the Creative Commons Attribution-ShareAlike
+3.0 license through explicit permission from their authors.
+
+
+Credits for music included in this package
+------------------------------------------
+macroform-cold_day - Paul Shuler (Macroform)
+paulshuler@gmail.com - http://macroform.bandcamp.com/
+
+macroform-robot_dity - Paul Shuler (Macroform)
+paulshuler@gmail.com - http://macroform.bandcamp.com/
+
+macroform-the_simplicity - Paul Shuler (Macroform)
+paulshuler@gmail.com - http://macroform.bandcamp.com/
+
+manolo_camp-morning_coffee - Manolo Camp
+beatbastard@gmx.net - http://ccmixter.org/people/ManoloCamp
+
+reno_project-system - Reno Project
+renoproject@hotmail.com - http://www.jamendo.com/en/album/23661
+
+These files are distributed under the Creative Commons Attribution-ShareAlike
+3.0 license through explicit permission from their authors.
+
+The license can be found at:
+http://creativecommons.org/licenses/by-sa/3.0/
+
+
+Debian packaging is:
+
+    Copyright (c) 2010, Tzafrir Cohen <tzafrir.cohen@xorcom.com>
+
+    This package is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+ 
+    This package is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+ 
+    You should have received a copy of the GNU General Public License
+    along with this package; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+    MA 02110-1301, USA.
+  
+On Debian GNU/Linux systems, the complete text of the GNU General
+Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
