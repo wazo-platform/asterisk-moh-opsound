@@ -3,11 +3,19 @@ asterisk-moh-opsound
 
 asterisk extra sound files (MOH)
 
+Dependencies
+============
 
-To get tarball, execute:
+run the following command to install depedencies:
 
- ./debian/rules get-orig-source
- 
- cp -r asterisk-moh-opsound-2.03/* .
- 
- debuild
+    apt-get install devscripts
+
+Build package
+=============
+
+To download sources and build package, execute:
+
+    ./debian/rules get-orig-source
+    tar xf asterisk-moh-opsound-2.03.orig.tar.gz
+    cp -r asterisk-moh-opsound-2.03/* .
+    debuild
