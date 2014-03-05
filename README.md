@@ -18,4 +18,6 @@ To download sources and build package, execute:
     ./debian/rules get-orig-source
     tar xf asterisk-moh-opsound-2.03.orig.tar.gz
     cp -r asterisk-moh-opsound-2.03/* .
-    debuild
+    debuild -us -uc
+    
+The packages will be placed in the parent directory (```cd ..```)
