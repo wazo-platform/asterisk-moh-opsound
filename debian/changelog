@@ -1,3 +1,9 @@
+asterisk-moh-opsound (2.03-1~wazo1) wazo-dev-buster; urgency=medium
+
+  * rebuild for Buster
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Wed, 11 Sep 2019 09:41:37 -0400
+
 asterisk-moh-opsound (2.03-1+0.pf-backport-4) stable; urgency=low
 
   * fix install path
