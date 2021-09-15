@@ -5,7 +5,7 @@ PACKAGE=$(shell sed -e '2,$$d' -e 's/ .*//' debian/changelog)
 VERSION=$(shell sed -e '2,$$d' -e 's/^[^(]*(\([^-]*\)-.*)*)*/\1/' debian/changelog)
 TMPDIR=tmp
 FORMATS=gsm g722 wav
-TARGET_DIR=.
+TARGET_DIR=..
 
 PKGNAME=$(PACKAGE)-$(VERSION)
 PKGDIR=$(TMPDIR)/$(PKGNAME)
