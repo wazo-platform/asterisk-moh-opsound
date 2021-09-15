@@ -20,6 +20,13 @@ set -e
 
 case "$1" in
     configure)
+	      if ! getent passwd asterisk > /dev/null ; then
+		        echo "Adding system user asterisk" 1>&2
+		        adduser --quiet --system --group --no-create-home \
+			              --home /var/lib/asterisk \
+			              --gecos "Asterisk PBX daemon" \
+			              asterisk
+	      fi
         chown -R asterisk:www-data /var/lib/asterisk/moh/default
         chmod 660 /var/lib/asterisk/moh/default/*
     ;;
