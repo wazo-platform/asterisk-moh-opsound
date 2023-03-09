@@ -13,10 +13,20 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '10'))
   }
   stages {
+    stage ('Prepare') {
+      steps {
+        script {
+          version = sh(script: 'dpkg-parsechangelog --show-field version', returnStdout: true).trim()
+          currentBuild.displayName = "${JOB_NAME} ${version}"
+          currentBuild.description = "Build Debian package ${JOB_NAME} ${version}"
+        }
+      }
+    }
     stage('Debian build and deploy') {
       steps {
         build job: 'build-package-no-arch', parameters: [
           string(name: 'PACKAGE', value: "${JOB_NAME}"),
+          string(name: 'VERSION', value: "${version}"),
         ]
       }
     }
