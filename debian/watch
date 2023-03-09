@@ -1,8 +1,0 @@
-version=3
-# BIG NOTE: this watch file should only be used for testing of a new version
-# Use './debian/rules get-orig-source' to generate the unified tarball
-opts=dversionmangle=s/\-gsm//; \
-	http://downloads.asterisk.org/pub/telephony/sounds/releases/asterisk-moh-opsound-gsm-(.*)\.tar\.gz\
-	debian
-
-
