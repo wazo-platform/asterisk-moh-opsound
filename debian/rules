@@ -2,12 +2,18 @@
 
 BASE_URL=http://downloads.asterisk.org/pub/telephony/sounds/releases/
 PACKAGE=$(shell sed -e '2,$$d' -e 's/ .*//' debian/changelog)
-VERSION=$(shell sed -e '2,$$d' -e 's/^[^(]*(\([^-]*\)-.*)*)*/\1/' debian/changelog)
+VERSION=$(shell sed -e '2,$$d' -e 's/^[^(]*(\([^-]*\)-.*)*)*/\1/' debian/changelog |  cut -f 1,2 -d '.')
+# Because source package is not downloaded, but built by the get-orig-source
+# target which can be on different Debian version (and different tar version),
+# the .tar.gz can have different size/md5
+# Adding a patch version to the original versioning allow to rebuild same
+# version on different OS and have different source package
+FAKE_VERSION=$(shell sed -e '2,$$d' -e 's/^[^(]*(\([^-]*\)-.*)*)*/\1/' debian/changelog)
 TMPDIR=tmp
 FORMATS=gsm g722 wav
 TARGET_DIR=..
 
-PKGNAME=$(PACKAGE)-$(VERSION)
+PKGNAME=$(PACKAGE)-$(FAKE_VERSION)
 PKGDIR=$(TMPDIR)/$(PKGNAME)
 
 %:
@@ -16,7 +22,7 @@ PKGDIR=$(TMPDIR)/$(PKGNAME)
 
 print-version:
 	@echo package: $(PACKAGE)
-	@echo version: $(VERSION)
+	@echo version: $(FAKE_VERSION)
 
 get-orig-source:
 	rm -rf $(PKGDIR)
@@ -36,6 +42,6 @@ get-orig-source:
 	  tarball="$(PACKAGE)-$$format-$(VERSION).tar.gz"; \
 	  $(RM) -f $$tarball; \
 	 done
-	tar czf $(TARGET_DIR)/$(PACKAGE)_$(VERSION).orig.tar.gz \
-		-C $(TMPDIR) $(PACKAGE)-$(VERSION)
+	tar czf $(TARGET_DIR)/$(PACKAGE)_$(FAKE_VERSION).orig.tar.gz \
+		-C $(TMPDIR) $(PACKAGE)-$(FAKE_VERSION)
 	rm -rf $(TMPDIR)

@@ -10,6 +10,12 @@ run the following command to install depedencies:
 apt-get install devscripts
 ```
 
+## Update Package
+
+To rebuild the package on different Debian version, increase the patch version
+(X.X.1 --> X.X.2)
+Otherwise, the builder (get-orig-source) can produce a different .tar.gz file size and md5
+
 ## Build Package
 
 To download sources and build package, execute:
