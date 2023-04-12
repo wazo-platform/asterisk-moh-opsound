@@ -9,6 +9,9 @@ VERSION=$(shell sed -e '2,$$d' -e 's/^[^(]*(\([^-]*\)-.*)*)*/\1/' debian/changel
 # Adding a patch version to the original versioning allow to rebuild same
 # version on different OS and have different source package
 FAKE_VERSION=$(shell sed -e '2,$$d' -e 's/^[^(]*(\([^-]*\)-.*)*)*/\1/' debian/changelog)
+
+# To be able to create tarball with same sha256, directories must always have the same timestamp
+FAKE_TIMESTAMP=202301010000.00
 TMPDIR=tmp
 FORMATS=gsm g722 wav
 TARGET_DIR=..
@@ -35,6 +38,7 @@ get-orig-source:
 	  cd $(PKGNAME)/$$format; \
 	    tar xzf ../../$$tarball; \
 	  cd ../..; \
+	  touch -t $(FAKE_TIMESTAMP) $(PKGNAME)/$$format; \
 	done
 	# Remove tarballs: only after a successful download:
 	set -e ; \
@@ -42,6 +46,7 @@ get-orig-source:
 	  tarball="$(PACKAGE)-$$format-$(VERSION).tar.gz"; \
 	  $(RM) -f $$tarball; \
 	 done
-	tar czf $(TARGET_DIR)/$(PACKAGE)_$(FAKE_VERSION).orig.tar.gz \
-		-C $(TMPDIR) $(PACKAGE)-$(FAKE_VERSION)
+
+	touch -t $(FAKE_TIMESTAMP) $(PKGDIR)
+	tar -C $(TMPDIR) -cf -  $(PACKAGE)-$(FAKE_VERSION) | gzip --no-name > $(TARGET_DIR)/$(PACKAGE)_$(FAKE_VERSION).orig.tar.gz
 	rm -rf $(TMPDIR)
